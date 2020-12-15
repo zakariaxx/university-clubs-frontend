@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UirClubFront';
-  public isCollapsed;
+  focus: any;
+  focus1: any;
+
 }

@@ -1,12 +1,126 @@
-<div class="container-fluid">
- <!-- Top navbar -->
+<div class="main-content">
+  <nav class="navbar navbar-top navbar-horizontal navbar-expand-md navbar-dark">
+    <div class="container px-4">
+      <a class="navbar-brand" routerLinkActive="active" [routerLink]="['/home']">
+        <img src="assets/img/brand/argon-white.png" />
+      </a>
+      <button class="navbar-toggler" type="button" (click)="isCollapsed=!isCollapsed"
+         aria-controls="sidenav-collapse-main">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse"  [ngbCollapse]="isCollapsed" id="sidenav-collapse-main">
+        <!-- Collapse header -->
+        <div class="navbar-collapse-header d-md-none">
+          <div class="row">
+            <div class="col-6 collapse-brand">
+              <a routerLinkActive="active" [routerLink]="['/home']">
+                <img src="assets/img/brand/blue.png">
+              </a>
+            </div>
+            <div class="col-6 collapse-close">
+              <button type="button" class="navbar-toggler" (click)="isCollapsed=!isCollapsed" >
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Navbar items -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/home']">
+             <i class="fa fa-users"></i>
+              <span class="nav-link-inner--text">Les Clubs</span>
+            </a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/user']">
+              <i class="fas fa-calendar-alt"></i>
+              <span class="nav-link-inner--text">Les Evénements</span>
+            </a>
+          </li>
 
-  <app-navbar></app-navbar>
-  <!-- Pages -->
+          <li *ngIf="isLogin" class="nav-item" ngbDropdown placement="bottom-right">
+            <a class="nav-link pr-0" role="button" ngbDropdownToggle>
+              <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+                  <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg">
+                </span>
+                <div class="media-body ml-2 d-none d-lg-block">
+                  <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                </div>
+              </div>
+            </a>
+            <div class="dropdown-menu-arrow dropdown-menu-right" ngbDropdownMenu>
+              <div class=" dropdown-header noti-title">
+                <h6 class="text-overflow m-0">Bienvenue!</h6>
+              </div>
+              <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+                <i class="ni ni-single-02"></i>
+                <span>Mon profile</span>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+                <i class="ni ni-settings-gear-65"></i>
+                <span>Paramètres</span>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+                <i class="ni ni-calendar-grid-58"></i>
+                <span>Activités</span>
+              </a>
+              <a routerLinkActive="active" [routerLink]="['/user-profile']" class="dropdown-item">
+                <i class="ni ni-support-16"></i>
+                <span>Support</span>
+              </a>
+              <div class="dropdown-divider"></div>
+              <a href="#!" class="dropdown-item">
+                <i class="ni ni-user-run"></i>
+                <span>Deconnexion</span>
+              </a>
+            </div>
+          </li>
+          <li *ngIf="!isLogin" class="nav-item">
+            <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/auth/login']">
+              <i class="ni ni-key-25"></i>
+              <span class="nav-link-inner--text">Connexion</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <router-outlet></router-outlet>
-  <div >
-    <app-footer></app-footer>
-  </div>
 </div>
+<footer class="py-5">
+  <div class="container">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6">
+        <div class="copyright text-center text-xl-left text-muted">
+          &copy; {{ test | date: "yyyy" }} <a href="http://www.uir.ac.ma" class="font-weight-bold ml-1" target="_blank">Université Internationale de Rabat</a>
+        </div>
+      </div>
+      <div class="col-xl-6">
+        <ul class="nav nav-footer justify-content-center justify-content-xl-end">
+          <li class="nav-item">
+            <a href="https://www.creative-tim.com/presentation?ref=ada-footer-auth-layout" class="nav-link" target="_blank">A Propos</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.facebook.com/Universite.Internationale.de.Rabat" class="nav-link" target="_blank"><i class="fab fa-facebook"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.instagram.com/uir.rabat" class="nav-link" target="_blank"><i class="fab fa-instagram"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="https://twitter.com/UIRabat" class="nav-link" target="_blank"><i class="fab fa-twitter"></i></a>
+          </li>
+          <li class="nav-item">
+            <a href="https://www.youtube.com/channel/UCGIT-YaIQf6cmYVt1yOZLkQ?view_as=subscriber" class="nav-link" target="_blank"><i class="fab fa-youtube"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
 
 

@@ -10,6 +10,7 @@ export class GuestLayoutComponent implements OnInit {
 
   test: Date = new Date();
   public isCollapsed = true;
+  public isLogin = false;
 
   constructor(private router: Router) { }
 

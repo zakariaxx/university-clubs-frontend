@@ -15,17 +15,18 @@ const routes: Routes = [
 
   { path: 'auth',
      component: AuthLayoutComponent,
+
      children: [
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
+
     ]
   },
-   { path: 'user',
+   { path: 'home',
      component: GuestLayoutComponent,
      children: [
       { path: 'user-profile',   component: UserProfileComponent },
-      { path: 'home',   component: HomeComponent },
-
+      { path: '',   component: HomeComponent },
     ]
   },
   { path: 'admin',
@@ -36,7 +37,7 @@ const routes: Routes = [
 
     ]
   },
-  { path: '',   redirectTo: '/user/home', pathMatch: 'full' }, // redirect to `first-component`
+  { path: '',   redirectTo: 'home', pathMatch: 'full' }, // redirect to `first-component`
   { path: '**', component: PageNotFoundComponent },
 ];
 

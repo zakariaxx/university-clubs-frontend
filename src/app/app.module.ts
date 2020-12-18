@@ -16,6 +16,10 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ManageUserComponent } from './pages/manage/manage-user/manage-user.component';
+import { ManageClubComponent } from './pages/manage/manage-club/manage-club.component';
+import { ManageEventComponent } from './pages/manage/manage-event/manage-event.component';
+import { ManageMeetingComponent } from './pages/manage/manage-meeting/manage-meeting.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     AuthLayoutComponent,
     PageNotFoundComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    ManageUserComponent,
+    ManageClubComponent,
+    ManageEventComponent,
+    ManageMeetingComponent
 
   ],
   imports: [

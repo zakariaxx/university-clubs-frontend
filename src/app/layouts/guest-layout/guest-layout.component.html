@@ -40,14 +40,14 @@
             </a>
           </li>
 
-          <li *ngIf="isLogin" class="nav-item" ngbDropdown placement="bottom-right">
+          <li *ngIf="authService.userIsLoggedIn()" class="nav-item" ngbDropdown placement="bottom-right">
             <a class="nav-link pr-0" role="button" ngbDropdownToggle>
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
                   <img alt="Image placeholder" src="assets/img/theme/team-4-800x800.jpg">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
-                  <span class="mb-0 text-sm  font-weight-bold">Jessica Jones</span>
+                  <span class="mb-0 text-sm  font-weight-bold">{{user.user_name}}</span>
                 </div>
               </div>
             </a>
@@ -72,13 +72,13 @@
                 <span>Support</span>
               </a>
               <div class="dropdown-divider"></div>
-              <a href="#!" class="dropdown-item">
+              <a (click)="authService.logout()" class="dropdown-item">
                 <i class="ni ni-user-run"></i>
                 <span>Deconnexion</span>
               </a>
             </div>
           </li>
-          <li *ngIf="!isLogin" class="nav-item">
+          <li *ngIf="!authService.userIsLoggedIn()" class="nav-item">
             <a class="nav-link nav-link-icon" routerLinkActive="active" [routerLink]="['/auth/login']">
               <i class="ni ni-key-25"></i>
               <span class="nav-link-inner--text">Connexion</span>

@@ -1,3 +1,4 @@
+import { ManageUserComponent } from './pages/manage/manage-user/manage-user.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
@@ -34,6 +35,7 @@ const routes: Routes = [
      children: [
       { path: 'user-profile',   component: UserProfileComponent },
       { path: 'dashboard',   component: DashboardComponent },
+      { path: 'manage-user',   component: ManageUserComponent },
 
     ]
   },

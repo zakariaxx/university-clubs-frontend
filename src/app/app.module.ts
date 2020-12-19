@@ -1,3 +1,5 @@
+import { AuthInterceptor } from './services/auth-interceptor.service';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +22,8 @@ import { ManageUserComponent } from './pages/manage/manage-user/manage-user.comp
 import { ManageClubComponent } from './pages/manage/manage-club/manage-club.component';
 import { ManageEventComponent } from './pages/manage/manage-event/manage-event.component';
 import { ManageMeetingComponent } from './pages/manage/manage-meeting/manage-meeting.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -45,9 +49,15 @@ import { ManageMeetingComponent } from './pages/manage/manage-meeting/manage-mee
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+    CommonModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [{provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true}],
   bootstrap: [AppComponent],
   exports: [SidebarComponent, FooterComponent, UserProfileComponent, GuestLayoutComponent, AdminLayoutComponent, AuthLayoutComponent, PageNotFoundComponent, HomeComponent, DashboardComponent]
 })

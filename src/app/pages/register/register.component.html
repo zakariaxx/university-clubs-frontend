@@ -33,13 +33,38 @@
           <div class="text-center text-muted mb-4">
             <small>Ou avec tes identifiants</small>
           </div>
-          <form role="form">
+          <form #f="ngForm" (ngSubmit)="onSubmit()">
+
+            <div class="form-group">
+              <select class="form-control" name="civility" id="civility" [(ngModel)]="user.civility">
+                <option value="" selected disabled>Civilité</option>
+                <option>Mme</option>
+                <option>Mr</option>
+              </select>
+            </div>
+
             <div class="form-group">
               <div class="input-group input-group-alternative mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                 </div>
-                <input class="form-control" placeholder="Nom d'utilisateur" type="text">
+                <input class="form-control" placeholder="Nom" type="text" name="last_name" [(ngModel)]="user.last_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="Prénom" type="text" name="first_name" [(ngModel)]="user.first_name">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input class="form-control" placeholder="Nom d'utilisateur" type="text" name="user_name" [(ngModel)]="user.user_name">
               </div>
             </div>
             <div class="form-group">
@@ -47,18 +72,38 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                 </div>
-                <input class="form-control" placeholder="Email" type="email">
+                <input class="form-control" placeholder="Téléphone" type="text" name="phone_number" [(ngModel)]="user.phone_number">
               </div>
             </div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input class="form-control" placeholder="Email" type="text" name="email" [(ngModel)]="user.email">
+              </div>
+            </div>
+
             <div class="form-group">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" placeholder="Mot de passe" type="password">
+                <input class="form-control" placeholder="Mot de passe" type="password" name="password" [(ngModel)]="user.password">
               </div>
             </div>
             <div class="text-muted font-italic"><small>Force du mot de passe: <span class="text-success font-weight-700">Fort</span></small></div>
+
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Confirmer le Mot de passe" type="password" name="password_cf" [(ngModel)]="password_cf">
+              </div>
+            </div>
+
             <div class="row my-4">
               <div class="col-12">
                 <div class="custom-control custom-control-alternative custom-checkbox">
@@ -70,7 +115,7 @@
               </div>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary mt-4">Créer compte</button>
+              <button type="submit" class="btn btn-primary mt-4">Créer compte</button>
             </div>
           </form>
         </div>
